@@ -53,25 +53,24 @@
 <body onload="start()">
   <h1>Space Reader</h1>
 
-  <form id="game">
-    <button id="next" type="submit">Next</button>
-  </form>
-
   <main class="container">
-    <div class="row p-5">
-      <button id="btn1" type="button" class="w-100 btn btn-lg btn-primary"></button>
-    </div>
-    <div class="row p-5">
-      <button id="btn2" type="button" class="w-100 btn btn-lg btn-primary"></button>
-    </div>
-    <div class="row p-5">
-      <button id="btn3" type="button" class="w-100 btn btn-lg btn-primary"></button>
-    </div>
-    <div class="h1" id="success"></div>
+    <form id="game">
+      <div class="row p-5">
+        <button id="btn1" type="button" class="w-100 btn btn-lg btn-primary"></button>
+      </div>
+      <div class="row p-5">
+        <button id="btn2" type="button" class="w-100 btn btn-lg btn-primary"></button>
+      </div>
+      <div class="row p-5">
+        <button id="btn3" type="button" class="w-100 btn btn-lg btn-primary"></button>
+      </div>
+      <div class="h1" id="success"></div>
 
-    <div class="row p-5">
-      <button id="repeat" type="button" class="w-100 btn btn-lg btn-primary" onclick="speak(selected)" >Repeat</button>
-    </div>
+      <div class="row p-5">
+        <button id="repeat" type="button" class="w-50 btn btn-lg btn-danger" onclick="speak(selected)" >Repeat</button>
+        <button id="next" type="submit" class="w-50 btn btn-lg btn-success" >Next</button>
+      </div>
+    </form>
 
   </main>
   <script src="script.js"></script>

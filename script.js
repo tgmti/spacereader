@@ -27,7 +27,7 @@ var words = [
   "Braquiossauro",
   "Anquilossauro",
   "Alossauro",
-  "Carnossauro",
+  "Carnotauro",
   "Pteranodonte",
   "Parasaurolophus",
   "Oviraptor",
@@ -118,9 +118,13 @@ btn3.onclick = function(){
 }
 
 function check_button(btn){
+  speak(btn.innerHTML);
   if (btn.innerHTML == word){
     result.innerHTML = "Success!";
     btn.classList.add("btn-success");
+    setTimeout(() => {
+      start();
+    }, 2000);
   } else {
     btn.classList.add("btn-danger");
     result.innerHTML = "Try again!";
