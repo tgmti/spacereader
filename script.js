@@ -10,6 +10,9 @@ var btn2 = document.querySelector('#btn2');
 var btn3 = document.querySelector('#btn3');
 
 var result = document.querySelector('#success');
+var showScore = document.querySelector('#score');
+var score = 0;
+
 
 var words = [
   "Caio",
@@ -82,9 +85,12 @@ gameForm.onsubmit = function(event) {
 }
 
 function start(){
-  var randomItem = words[Math.floor(Math.random()*words.length)];
+
+  showScore.innerHTML = `Pontos: ${score}`;
 
   result.innerHTML = "";
+  result.classList.remove("btn-success");
+  result.classList.remove("btn-danger");
   btn1.classList.remove("btn-success");
   btn1.classList.remove("btn-danger");
   btn2.classList.remove("btn-success");
@@ -92,9 +98,11 @@ function start(){
   btn3.classList.remove("btn-success");
   btn3.classList.remove("btn-danger");
 
-  btn1.innerHTML = words[Math.floor(Math.random()*words.length)];
-  btn2.innerHTML = words[Math.floor(Math.random()*words.length)];
-  btn3.innerHTML = words[Math.floor(Math.random()*words.length)];
+  words.sort(() => Math.random() - 0.5);
+
+  btn1.innerHTML = words[0];
+  btn2.innerHTML = words[1];
+  btn3.innerHTML = words[2];
 
   var btns = [btn1, btn2, btn3];
   var btn = btns[Math.floor(Math.random()*btns.length)];
@@ -119,14 +127,19 @@ btn3.onclick = function(){
 
 function check_button(btn){
   speak(btn.innerHTML);
+  result.classList.remove("btn-success");
+  result.classList.remove("btn-danger");
   if (btn.innerHTML == word){
-    result.innerHTML = "Success!";
+    result.innerHTML = "Acertou!!";
+    result.classList.add("btn-success");
     btn.classList.add("btn-success");
+    score++;
     setTimeout(() => {
       start();
     }, 2000);
   } else {
     btn.classList.add("btn-danger");
-    result.innerHTML = "Try again!";
+    result.classList.add("btn-danger");
+    result.innerHTML = "Tente Novamente!";
   }
 }
