@@ -38,6 +38,8 @@ var words = [
  
 ];
 
+var selected = ""
+
 function populateVoiceList() {
   voices = synth.getVoices().sort(function (a, b) {
       const aname = a.name.toUpperCase(), bname = b.name.toUpperCase();
@@ -97,8 +99,10 @@ function start(){
   var btns = [btn1, btn2, btn3];
   var btn = btns[Math.floor(Math.random()*btns.length)];
 
-  speak(btn.innerHTML);
-  word = btn.innerHTML;
+  selected = btn.innerHTML
+
+  speak(selected);
+  word = selected;
 }
 
 btn1.onclick = function(){
