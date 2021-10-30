@@ -32,7 +32,9 @@ var words = [
   "Parasaurolophus",
   "Oviraptor",
   "Indominus Rex",
-  "Stygimoloch"
+  "Stygimoloch",
+  "Mosassauro",
+  "Plesiossauro",
  
 ];
 
