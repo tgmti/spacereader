@@ -57,13 +57,13 @@ if (speechSynthesis.onvoiceschanged !== undefined) {
   speechSynthesis.onvoiceschanged = populateVoiceList;
 }
 
-function speak(words){
+function speak(word){
   if (synth.speaking) {
     console.error('speechSynthesis.speaking');
     return;
   }
-  if (words !== '') {
-    var utterThis = new SpeechSynthesisUtterance(words);
+  if (word !== '') {
+    var utterThis = new SpeechSynthesisUtterance(word);
     utterThis.onend = function (event) {
       console.log('SpeechSynthesisUtterance.onend');
     }
@@ -76,8 +76,6 @@ function speak(words){
     synth.speak(utterThis);
   }
 }
-
-var word = "";
 
 gameForm.onsubmit = function(event) {
   event.preventDefault();
@@ -110,7 +108,6 @@ function start(){
   selected = btn.innerHTML
 
   speak(selected);
-  word = selected;
 }
 
 btn1.onclick = function(){
@@ -129,7 +126,7 @@ function check_button(btn){
   speak(btn.innerHTML);
   result.classList.remove("btn-success");
   result.classList.remove("btn-danger");
-  if (btn.innerHTML == word){
+  if (btn.innerHTML == selected){
     result.innerHTML = "Acertou!!";
     result.classList.add("btn-success");
     btn.classList.add("btn-success");
